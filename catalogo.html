@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo | Biblioteca del Campus</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <h2>📚 Biblioteca</h2>
+    <p>Sesión: <strong id="nombreUsuario">ADMIN</strong></p>
+    <nav aria-label="Menú principal">
+        <a href="index.html">🏠 Inicio</a>
+        <a href="catalogo.html">📖 Catálogo</a>
+        <a href="registrar.html">➕ Registrar libro</a>
+    </nav>
+    <button type="button" id="btnModo">🌙 Modo nocturno</button>
+    <button type="button" id="btnCerrarSesion">🚪 Cerrar sesión</button>
+</aside>
+
+<main class="contenido-principal">
+    <header>
+        <h1>Catálogo</h1>
+        <p class="subtitulo">Consulta, presta y devuelve los libros de la biblioteca.</p>
+    </header>
+
+    <section id="catalogo-fisico" aria-labelledby="tituloFisico">
+        <h2 id="tituloFisico">📚 Catálogo físico</h2>
+        <p class="descripcion">Libros registrados y ejemplares disponibles para préstamo.</p>
+
+        <div class="filtros">
+            <input id="buscarLocal" type="search"
+                   placeholder="Buscar título o autor"
+                   aria-label="Buscar en el catálogo local">
+
+            <select id="filtroCategoria" aria-label="Filtrar por categoría">
+                <option value="">Todas las categorías</option>
+            </select>
+
+            <button id="btnLimpiarFiltros" type="button" class="secundario">✖ Limpiar filtros</button>
+        </div>
+
+        <p id="estadoLocal" role="status"></p>
+
+        <div class="tabla-contenedor">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>Año</th>
+                        <th>Categoría</th>
+                        <th>Disponibles / Total</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoCatalogo"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="buscar" aria-labelledby="tituloAPI">
+        <h2 id="tituloAPI">🌐 Buscar libros en Open Library</h2>
+        <p class="descripcion">
+            Consulta una API pública para encontrar información bibliográfica.
+            Los resultados externos no son automáticamente parte del inventario.
+        </p>
+
+        <form id="formBusqueda">
+            <input id="consultaAPI" type="search"
+                   placeholder="Título o autor (ej. Gabriel García Márquez)"
+                   aria-label="Buscar en Open Library" required>
+            <button id="btnBuscarAPI" type="submit">🔍 Buscar</button>
+        </form>
+
+        <p id="estadoAPI" class="estado" role="status" aria-live="polite">
+            Escribe un título o autor para comenzar.
+        </p>
+
+        <div id="resultadosAPI"></div>
+
+        <div class="paginacion">
+            <button id="paginaAnterior" type="button" disabled>← Anterior</button>
+            <span id="numeroPagina">Página 1</span>
+            <button id="paginaSiguiente" type="button" disabled>Siguiente →</button>
+        </div>
+
+        <p class="descripcion">
+            Fuente:
+            <a class="enlace" href="https://openlibrary.org/developers/api"
+               target="_blank" rel="noopener noreferrer">
+                Documentación de Open Library API
+            </a>
+        </p>
+    </section>
+
+    <section id="favoritos" aria-labelledby="tituloFavoritos">
+        <h2 id="tituloFavoritos">⭐ Mis favoritos</h2>
+        <p id="estadoFavoritos" role="status"></p>
+        <div id="listaFavoritos"></div>
+    </section>
+</main>
+
+<script src="js/app.js"></script>
+<script src="js/libros.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | Biblioteca del Campus</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <h2>📚 Biblioteca</h2>
+    <p>Sesión: <strong id="nombreUsuario">ADMIN</strong></p>
+    <nav aria-label="Menú principal">
+        <a href="index.html">🏠 Inicio</a>
+        <a href="catalogo.html">📖 Catálogo</a>
+        <a href="registrar.html">➕ Registrar libro</a>
+    </nav>
+    <button type="button" id="btnModo">🌙 Modo nocturno</button>
+    <button type="button" id="btnCerrarSesion">🚪 Cerrar sesión</button>
+</aside>
+
+<main class="contenido-principal">
+    <header>
+        <h1>Inicio</h1>
+        <p class="subtitulo">Resumen general de la biblioteca.</p>
+    </header>
+
+    <section aria-labelledby="tituloResumen">
+        <h2 id="tituloResumen">📊 Resumen</h2>
+        <div class="estadisticas">
+            <div class="estadistica"><strong id="statTitulos">0</strong><span>Títulos registrados</span></div>
+            <div class="estadistica"><strong id="statDisponibles">0</strong><span>Ejemplares disponibles</span></div>
+            <div class="estadistica"><strong id="statPrestados">0</strong><span>Ejemplares prestados</span></div>
+            <div class="estadistica"><strong id="statPrestamos">0</strong><span>Préstamos realizados</span></div>
+            <div class="estadistica"><strong id="statDevoluciones">0</strong><span>Devoluciones realizadas</span></div>
+            <div class="estadistica"><strong id="statFavoritos">0</strong><span>Libros favoritos</span></div>
+        </div>
+    </section>
+
+    <section aria-labelledby="tituloAccesos">
+        <h2 id="tituloAccesos">⚡ Accesos rápidos</h2>
+        <div class="acciones-rapidas">
+            <a class="boton" href="catalogo.html">📖 Ver catálogo</a>
+            <a class="boton" href="registrar.html">➕ Registrar libro</a>
+            <a class="boton" href="catalogo.html#buscar">🌐 Buscar en Open Library</a>
+            <a class="boton" href="catalogo.html#favoritos">⭐ Mis favoritos</a>
+        </div>
+    </section>
+</main>
+
+<script src="js/app.js"></script>
+<script src="js/libros.js"></script>
+</body>
+</html>
